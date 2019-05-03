@@ -1,0 +1,34 @@
+<div class="card">
+  <div class="card-header">
+      <h1>Employees</h1>
+  </div>
+  <div class="card-content">
+      <div class="alert alert-warning" *ngIf="error">
+          <h5>{{errMsg}}</h5>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+                  <th>EmployeeName</th>          
+                  <th>Phone</th>          
+                  <th>Email</th>          
+                  <th>Gender</th>          
+                  <th>Department</th>          
+                  <th>Date Of Birth</th>                                             
+            </tr>                        
+          </thead>  
+          <tbody>
+            <tr *ngFor="let emp of empData; let i = index">
+                <td>{{emp.fname}}&nbsp; {{emp.lname}}</td>
+                <td>{{emp.phone}}</td>
+                <td>{{emp.email}}</td>
+                <td>{{emp.gender}}</td>
+                <td>{{emp.department}}</td>
+                <td>{{emp.dob}}</td>                
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>

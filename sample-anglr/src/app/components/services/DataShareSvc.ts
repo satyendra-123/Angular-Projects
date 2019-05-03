@@ -1,4 +1,4 @@
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 import { Injectable } from "@angular/core";
 import { Cart } from "../model/sweets.model";
 import { User } from '../model/user.model';

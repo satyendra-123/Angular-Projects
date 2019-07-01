@@ -1,6 +1,7 @@
 <div class="card">
   <div class="card-header">
-      <h1>Employees</h1>
+      <span style="font-size:25px">Employees</span>
+      <span style="float:right"><button class="btn btn-primary"> <i class="fa fa-user"></i> Refresh</button></span>
   </div>
   <div class="card-content">
       <div class="alert alert-warning" *ngIf="error">
@@ -10,14 +11,14 @@
         <table class="table table-striped">
           <thead>
             <tr>
-                  <th>EmployeeName</th>          
-                  <th>Phone</th>          
-                  <th>Email</th>          
-                  <th>Gender</th>          
-                  <th>Department</th>          
-                  <th>Date Of Birth</th>                                             
-            </tr>                        
-          </thead>  
+                  <th>EmployeeName</th>
+                  <th>Phone</th>
+                  <th>Email</th>
+                  <th>Gender</th>
+                  <th>Department</th>
+                  <th>Date Of Birth</th>
+            </tr>
+          </thead>
           <tbody>
             <tr *ngFor="let emp of empData; let i = index">
                 <td>{{emp.fname}}&nbsp; {{emp.lname}}</td>
@@ -25,7 +26,7 @@
                 <td>{{emp.email}}</td>
                 <td>{{emp.gender}}</td>
                 <td>{{emp.department}}</td>
-                <td>{{emp.dob}}</td>                
+                <td>{{emp.dob}}</td>
             </tr>
           </tbody>
         </table>

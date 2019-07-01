@@ -2,26 +2,34 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
-## Development server
+> Objective
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This poc contains:
+1. UI + Node js backend project.
+2. It is a solution for problem statement
 
-## Code scaffolding
+## Table of Contents
+- [Background](#background)
+- [Solution](#solution)
+- [Contributing](#contributing)
+- [License](#license)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Background
+Here is the problem statment:
+  Use Case 1: Employee Registration. (Angular 4+, Bootstrap, Typescript, Jasmin, Karma)
+  Use Case 2. Employee Data display by ascending order of name in sorted order(Spring Boot, Swagger, Security, Junit, Mockito)
 
-## Build
+## Solution
+  However the project accomplished using angular 7,bootstrap,node.js.
+  Covered the scenario.
+  1) employ registed to mongo db cloud server.
+  2) listed registed employees in sorted order by first name.
+  3) Seperatly written backend api with spring boot 
+     git link:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Contributing
 
-## Running unit tests
+Feel free to contribute to the project to make it better.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## license
+Nothing as such :). It is just a poc.

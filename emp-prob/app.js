@@ -9,12 +9,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}) );
 
 app.use(express.static(path.join(__dirname, './dist/emp-prob')));
- //const port = process.env.PORT || 8080; 
+ //const port = process.env.PORT || 8080;
 
 //controller
 list_data = function(req, res) {
     //callDb('select * from emp', res)
-    callMongoDb(res)
+    var mysort = { fname: 1 };
+    callMongoDb(mysort, res)
 };
 
 var callDb = function(sendQry, res){
@@ -27,9 +28,10 @@ var callDb = function(sendQry, res){
       });
 }
 
-var callMongoDb = function (res) {
+var callMongoDb = function (mysort, res) {
   let result;
-  mongo.qry(function (error, results, fields) {
+
+  mongo.qry(mysort, function (error, results, fields) {
       if (error) throw error;
       result = JSON.stringify(results)
       console.log('Mongo response:', result)
@@ -42,7 +44,7 @@ app.route('/api/emp')
 .get(list_data)
 
 app.route('/api/emp')
-.post(function(req, res){	
+.post(function(req, res){
    var employee = new Object();
    employee.fname = req.body.fname
    employee.lname = req.body.lname
@@ -54,20 +56,23 @@ app.route('/api/emp')
    employee.dob = req.body.dob
 
    console.log("User name = "+employee.fname+", email is "+employee.email);
-   
-   let result;
+
+   let result = {success: false, summaryMessage: ''};
    mongo.insrtQry(employee , function (error, results, fields) {
       if (error) throw error;
       result = JSON.stringify(results)
+      if(result){
+        result.success = true
+        result.summaryMessage = 'Employee is registred successfully'
+      }
       console.log('Mongo response:', result)
    })
-
-   res.send(JSON.parse(result))
+   res.json(result)
 })
 
 
 
  //server startup
-//app.listen(port, () => console.log(`Listening on port ${port}`));   
+//app.listen(port, () => console.log(`Listening on port ${port}`));
 module.exports = app;
 

@@ -18,6 +18,10 @@ export class ManageEmpComponent implements OnInit {
     this.getEmployees()
   }
 
+  refresh(){
+      this.getEmployees()
+  }
+
   getEmployees(){
     this.error = false
     this.empSvc.getEmp().then(res=>{

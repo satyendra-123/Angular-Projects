@@ -14,6 +14,10 @@ export class SignUpComponent implements OnInit {
 
   signUpForm: FormGroup
 
+  msg: string = ''
+  success: boolean = false
+  error: boolean = false
+
   ngOnInit() {
     this.createForm()
   }
@@ -25,13 +29,13 @@ export class SignUpComponent implements OnInit {
           'fname' : new FormControl('', Validators.required),
           'lname' : new FormControl('', Validators.required),
           'gender' : new FormControl('other', Validators.required),
-          'dob' : new FormControl('', Validators.required),    
-          'password': new FormControl('', Validators.required)      
+          'dob' : new FormControl('', Validators.required),
+          'password': new FormControl('', Validators.required)
       })
   }
 
   reset(){
-    this.signUpForm.reset()    
+    this.signUpForm.reset()
   }
 
   onSubmit(){
@@ -39,7 +43,10 @@ export class SignUpComponent implements OnInit {
         return
       }else{
          this.empSvc.addEmp(this.prepareDataForServer()).then(res=>{
-             console.log(res)
+           if(res && res.success){
+              this.msg = res.summaryMessage
+              this.success = true
+           }
          }).catch(error=>{
              console.log('error '+error)
          })
@@ -57,5 +64,5 @@ export class SignUpComponent implements OnInit {
       emp.password = fm.password
       emp.phone = fm.phone
       return emp
-  }  
+  }
 }
